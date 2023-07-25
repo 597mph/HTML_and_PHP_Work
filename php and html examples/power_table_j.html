@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <script>
+        const generateTable = () => {
+            // creates a <table> element and a <tbody> element
+            const table = document.createElement("table");
+            const tableBody = document.createElement("tbody");
+
+            // creating all cells
+            let startTime = new Date().getTime();
+            for (let i = 1; i < 1000; i++) {
+                // creates a table row
+                const row = document.createElement("tr");
+
+                for (let j = 0; j < 3; j++) {
+                    // Create a <td> element and a text node, make the text
+                    // node the contents of the <td>, and put the <td> at
+                    // the end of the table row
+                    const cell = document.createElement("td");
+                    let cellText;
+                    if (j == 0) {
+                        cellText = document.createTextNode(`${i}`);
+                    } else if (j == 1) {
+                        cellText = document.createTextNode(`${i**2}`);
+                    } else if (j == 2) {
+                        cellText = document.createTextNode(`${i**3}`);
+                    }
+                    cell.appendChild(cellText);
+                    row.appendChild(cell);
+                }
+
+                // add the row to the end of the table body
+                tableBody.appendChild(row);
+            }
+            // benchmark 
+            let endTime = new Date().getTime();
+            let time = endTime - startTime;
+            document.write(`Time to generate 999 rows of 3 columns: ${time} milliseconds.`);
+            // put the <tbody> in the <table>
+            table.appendChild(tableBody);
+            // appends <table> into <body>
+            document.body.appendChild(table);
+            // sets the border attribute of table to 2
+            table.setAttribute("border", "2");
+        }
+
+    </script>
+</head>
+
+<body>
+    <script>generateTable()</script>
+</body>
+
+</html>

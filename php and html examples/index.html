@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="author" content="Maxwell Hauser" />
+  <!-- HTML slidy was developed by Dave Raggett  -->
+  <title>SCSU CSC 443: Fall 2022</title>
+
+  <!--  external Cascading Style Sheets for styling all slides -->
+  <link rel="stylesheet" type="text/css" media="screen, projection, print" href="scripts/slidy.css" /> <!-- http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css -->
+  <link rel="stylesheet" type="text/css" href="scripts/www-presentation.css"/>
+  <link rel="stylesheet" type="text/css" href="scripts/image-transition.css"/>
+
+  <!--  external JavaScript functions for slideshow behavior (slidy) and simplified JavaScript library (jQuery)
+        for a variety of uses ("write less. do more."; see jquery.com )-->
+  <script src="scripts/slidy.js" charset="utf-8" type="text/javascript"></script> <!-- http://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js-->
+  <script src="scripts/jquery-3.3.1.min.js" charset="utf-8" type="text/javascript"></script> <!-- https://code.jquery.com/jquery-3.3.1.min.js -->
+  <script src="scripts/www-presentation.js" charset="utf-8" type="text/javascript"></script>
+
+</head>
+<body>
+<div class="www-presentation-header"><img src="images/scsu-logo-compact-blue.png" style="height: 70px;"/><div class="www-presentation-header-text"></div></div>
+<div class="slide titlepage">
+  <h1 class="title"><br><font color = "#000080"></font></h1>
+  <p class="date">CSC 443: Internet Programming</p>
+  <p class="author"><a href="mailto:hauserm3@southernct.edu?subject=CSC443">Maxwell Hauser</a><br>
+  Computer Science Department <br><font color = "#8080FF" style="text-shadow:-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Southern Connecticut State University</font></p>
+  <button id="view-fullscreen" onclick="goFullscreen">*</button>
+  <!-- https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API/Guide -->
+  <script type="text/javascript">
+    (function goFullscreen() {
+        var viewFullScreen = document.getElementById("view-fullscreen");
+        if (viewFullScreen) {
+            viewFullScreen.addEventListener("click", function () {
+                var docElm = document.documentElement;
+                if (docElm.requestFullscreen) {
+                    docElm.requestFullscreen();
+                }
+                else if (docElm.msRequestFullscreen) {
+                    docElm = document.body; //overwrite the element (for IE)
+                    docElm.msRequestFullscreen();
+                }
+                else if (docElm.mozRequestFullScreen) {
+                    docElm.mozRequestFullScreen();
+                }
+                else if (docElm.webkitRequestFullScreen) {
+                    docElm.webkitRequestFullScreen();
+                }
+            }, false);
+        }
+
+        var cancelFullScreen = document.getElementById("cancel-fullscreen");
+        if (cancelFullScreen) {
+            cancelFullScreen.addEventListener("click", function () {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+                else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+                else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                }
+                else if (document.webkitCancelFullScreen) {
+                    document.webkitCancelFullScreen();
+                }
+            }, false);
+        }
+
+        var fullscreenState = document.getElementById("fullscreen-state");
+        if (fullscreenState) {
+            document.addEventListener("fullscreenchange", function () {
+                fullscreenState.innerHTML = (document.fullscreenElement)? "" : "not ";
+            }, false);
+
+            document.addEventListener("msfullscreenchange", function () {
+                fullscreenState.innerHTML = (document.msFullscreenElement)? "" : "not ";
+            }, false);
+
+            document.addEventListener("mozfullscreenchange", function () {
+                fullscreenState.innerHTML = (document.mozFullScreen)? "" : "not ";
+            }, false);
+
+            document.addEventListener("webkitfullscreenchange", function () {
+                fullscreenState.innerHTML = (document.webkitIsFullScreen)? "" : "not ";
+            }, false);
+        }
+    })();
+    </script>
+</div>
+<div class="section slide level1" id="this">
+  <br><br><br>
+  <h1>What is <i>this</i>?</h1>
+  <ul class="incremental">
+  <ul>&quot;answer&quot;
+  (<a href="https://somewhere" target=_blank><i>Reference</i></a>)</ul>
+</div>
+<div class="section slide level1" id="that">
+  <br><br><br>
+  <h1>What is <i>that</i>?</h1>
+  <ul class="incremental">
+  <li>More ideas
+    (<a href="https://somewhere" target=_blank>more sources</a>)
+  <li><p><a href="https://" target=_blank>List</a></p>
+  <ul class="incremental">
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  </ul></li>
+  </ul>
+</div>
+<div class="section slide level1" id="alternatives">
+  <br><br><br>
+  <h1>Why code a presentation instead of using <i>regular</i> software?</h1>
+  <ol class="incremental" style="list-style-type: decimal">
+  <li><p>Your presentation will be accessible to more devices and people</p></li>
+  <li><p>You will develop web programming expertise while preparing presentations</p></li>
+  <li><p>You prefer to focus on the languages you will use professionally for many purposes rather than tools used only for presentations and which can only be viewed with a limited set of applications</p></li>
+  </ol></li>
+</div>
+<div class="section slide level1" id="questions">
+  <br><br><br>
+  <h1>Questions?</h1>
+  <ul class="incremental">
+      <li>Question 1: Where have you been?<br>
+          I will probably misinterpret this question, but I've been to Spain, China,
+          Italy, France, and Belize, amongst some other countries and states in the US.
+          I skied on the West Coast a few times, and on the East Coast almost every year. I love ice skating.
+          I have lived in Connecticut my whole life, and moved from New Haven to Clinton in 2012.
+          I transferred from Union College in 2016, and have been attending SCSU part time since then.</li>
+      <li>Question 2: Where are you now?<br>
+          I am still living in Clinton at the moment, but that will change at the end of next year when I graduate. I commuted from home for a couple years, but have been taking classes remotely ever since COVID happened.
+          Online classes are easier for me.</li>
+      <li>Question 3: Where are you going?<br>
+          Honestly, I have no idea yet. I've been focusing on graduating for a while now, and I'm happy to finally almost be there. My brother and I should be graduating around the same time, and when that happens we will probably move in together somewhere along with a mutual friend.
+          I am hoping to do something related to either web dev/design, software development, video game development, or database management. Ultimately, I'll be happy doing mostly anything technology or IT related.</li>
+      <li>Question 4: Which of data networking, content, style, and behavior are your strengths or areas you wish to improve?<br>
+          I would say I am fairly skilled working with content and styling. There is room for improvement when it comes to data networking and behavior. I am confident this class will teach me some important skills pertaining to all four areas.</li>
+      <li>Question 5: Among the recommended reading, what interests you? What concerns you? What is familiar to you?<br>
+          I'm interested in pretty much anything technology related. Except crypto. I don't like crypto because it's terrible for the environment. I found pretty much all of the recommended readings interesting. I am familiar with some readings on HTML, IP, and TCP. I had not read the last couple readings and found them very cool. The only technology that concerns me is AI. Albeit I am very fascinated by the concept of AI, but
+          it obviously has the potential to be very dangerous if misused.</li>
+  <br><br>
+  <a class="email" href="mailto:hauserm3@southernct.edu">
+  <ul style=
+    "text-align: right;
+    font-family: Verdana,sans-serif;
+    text-shadow:-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
+    hauserm3@southernct.edu</a><br>
+    <img class="right-side-image" src="images/scsu-logo-compact-blue.png"></ul>
+  </ul>
+</div>
+<div class="section slide level1" id="hardware">
+    <br><br><br>
+    <h1>Describe your development environment (physical hardware and logical software).</h1>
+    <ul class="incremental">
+        <li>I use a 2011 Macbook Pro for almost all of my development (lol). <br>
+        I have a desktop PC that I use only sometimes for development.</li>
+        <li>I use Visual Studio Code almost exclusively, but have also used Eclipse and IntelliJ.</li>
+        <li>Development Environment Diagram:</li>
+        <img src="images/dde.png" alt="oops">
+    </ul>
+</div>
+<div class="section slide level1" id="public internet">
+    <br><br><br>
+    <h1>Describe how your development environment relates to the public internet.</h1>
+    <ul class="incremental">
+    <li>Certain IDEs can interact directly with the public internet via either extensions, plugins, or the code written within the IDE itself.</li>
+    <li>Every IDE is different, but ultimately the end product (application, program, software, or website) would use one or more types of internet protocol (HTTP, HTML, PHP, TCP, UDP, etc.)
+        depending on how the product is developed.</li>
+    <li>Diagram of the development environment's relationship to the public internet:</li>
+    <img src="images/ide-i rd.png" alt="oops">  
+</ul>
+</div>
+<div class="section slide level1" id="presentation hosting">
+    <br><br><br>
+    <h1>Describe how your web presentation is hosted.</h1>
+    <ul class="incremental">
+    <li>My web presentation is hosted locally. I would have hosted it via web server, but, as we know, we are still waiting for the droplet logistics to be figured out.</li>
+    <li>Web Host Diagram:</li>
+    <img src="images/whd.png" alt="oops">
+    </ul>
+</div>
+<div class="section slide level1" id="thanks">
+    <br><br><br>
+    <h1>Thank you!</h1>
+</div>
+</body>
+</html>
