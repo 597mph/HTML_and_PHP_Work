@@ -1,1 +1,1 @@
-## Developed by Maxwell Hauser
+Developed by Maxwell Hauser
